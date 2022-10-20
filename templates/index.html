@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Kamila{% endblock %}
+
+{% block body %}
+<div class="header">
+    <img src="{{ url_for('.static', filename='images/me.jpg') }}" width="300">
+    <h1>Kamila Wisniewska</h1>
+    <h3>Software Developer</h3>
+    <a href="https://github.com/kamiwis">GitHub Profile</a>
+    <a href="https://www.linkedin.com/in/kamila-wisniewska1/">LinkedIn Profile</a>
+    <p>Software Developer and Researcher with three years of training specializing 
+        in software development life cycle (SDLC) and Python to develop and implement 
+        custom software solutions for end-users.</p>
+    <ul>
+        {% for exp in profile_exp %}
+        <li>{{ exp }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+</div>
+
+<div class="skills">
+    <h2>Technical Skills</h2>
+    <p><strong>Languages: </strong>Python, R, HTML, CSS, JavaScript, SQL, C</p>
+    <p><strong>Frameworks/Libraries: </strong>Flask, Bootstrap, Pandas, JSON, NumPy, Selenium Webdriver, BeautifulSoup</p>
+    <p><strong>Developer Tools: </strong>Git, VS Code, RStudio, PyCharm, Jupyter Notebook, AWS</p>
+    <p><strong>Other: </strong>Web Scraping, REST API, Data Analysis, Data Visualization</p>
+    <hr>
+</div>
+
+<div class="tech-exp">
+    <h2>Technical Experience</h2>
+    <p><strong>Software Developer, Projects, Raleigh, NC</strong></p>
+    {% for exp in tech_exp.values() %}
+    <p><em>{{ exp["title"] }}</em></p>
+    <ul>
+        <li>{{ exp["description"] }}</li>
+    </ul>
+    {% endfor %}
+    <hr>
+</div>
+
+<div class="prof_exp">
+    <h2>Professional Experience</h2>
+    {% for exp in prof_exp.values() %}
+        <p><strong>{{ exp["title"] }}</strong></p>
+        <p>{{ exp["date"] }}</p>
+        <ul>
+            {% for desc in exp["description"] %}
+            <li>{{ desc }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <hr>
+</div>
+
+<div class="edu">
+    <h2>Education</h2>
+    <p><strong>edX – Harvard’s CS50 Introduction to Computer Science"</strong></p>
+    <p>Concepts: Fundamentals of Computer Science, Data Structures and Algorithms, Web Applications</p>
+    <br>
+    <p><strong>Bachelor of Science: Molecular Biology, Loyola University Chicago, Chicago, IL – Dec. 2016</strong></p>
+    <hr>
+</div>
+
+<div class="contact">
+    <h2>Contact Info</h2>
+    <p>Email: <a href="kmlwisiewska@gmail.com">kmlwisniewska@gmail.com</a></p>
+</div>
+
+{% endblock %}
